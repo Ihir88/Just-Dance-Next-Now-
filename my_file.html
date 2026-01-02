@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Dance Next - Updated Tracklist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
+
+        :root {
+            --accent-color: #22c55e;
+            --dynamic-bkg: url('https://i.postimg.cc/Y4T3L95z/jd23-bkg.png');
+        }
+body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Кнопка-крапка для повного екрана */
+        [data-fullscreen] {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 8px;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            z-index: 10000;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        [data-fullscreen]:hover {
+            transform: scale(1.8);
+            background-color: var(--accent-color);
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+
+        #screen-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background: #000;
+        }
+
+        .stage-container {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: #000;
+        }
+
+        #main-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(40px) brightness(0.2);
+            transition: filter 1s ease;
+        }
+
+        .dance-mode #main-video {
+            filter: blur(0) brightness(1);
+        }
+        
+        .app-ui {
+            position: relative;
+            z-index: 10;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            transition: background-image 0.8s ease-in-out, opacity 0.6s ease;
+            background-image: var(--dynamic-bkg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .dance-mode #app-interface {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #coach-display {
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+            height: 85vh;
+            pointer-events: none;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), 
+                        transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 5;
+        }
+        
+        #coach-display.active { opacity: 1; transform: translateX(0); }
+
+        .section-title {
+            padding: 0 40px;
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            opacity: 0.6;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .song-ribbon {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px 40px 30px;
+            scrollbar-width: none;
+        }
+
+        .song-ribbon::-webkit-scrollbar { display: none; }
+
+        .song-card {
+            flex: 0 0 200px;
+            aspect-ratio: 16/9;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            opacity: 0.6;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .song-card.active {
+            opacity: 1;
+            border-color: var(--accent-color);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--accent-color);
+        }
+
+        .btn-play-container {
+            width: 260px;
+            height: 80px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            z-index: 20;
+        }
+        .btn-play-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 15px var(--accent-color)); }
+        .btn-play-text { position: relative; z-index: 2; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; color: #fff; font-size: 18px; font-style: italic; }
+
+        .search-container {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 50px;
+            padding: 6px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 280px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .search-container input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .ui-badge {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .ui-badge.active { background: #fff; color: #000; }
+
+        .exit-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.4s;
+        }
+        .dance-mode .exit-btn { opacity: 1; pointer-events: auto; }
+title="Перемкнути екран"></button>
+
+    <script>
+        document.addEventListener('click', function (event) {
+            // Ігноруємо кліки, які не відносяться до нашої кнопки
+            if (!event.target.hasAttribute('data-fullscreen')) return;
+
+            // Логіка перемикання
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.error("Помилка:", err.message);
+                });
+            }
+        }, false);
+
+        // Зміна кольору крапки залежно від стану
+        document.addEventListener('fullscreenchange', function() {
+            const dot = document.querySelector('[data-fullscreen]');
+            if (document.fullscreenElement) {
+                dot.classList.add('is-active');
+            } else {
+                dot.classList.remove('is-active');
+            }
+        });
+    </script>
+
+        .orientation-portrait .hero-content { max-width: 90%; text-align: center; margin: 0 auto; }
+        .orientation-portrait .hero-content h1 { font-size: 2.8rem; }
+        .orientation-portrait header { flex-direction: column; gap: 15px; padding: 20px; }
+        .orientation-portrait .search-container { width: 100%; }
+    </style>
+</head>
+<body class="orientation-landscape">
+
+    <div id="screen-wrapper">
+        <div class="stage-container">
+            <video id="main-video" loop muted playsinline preload="auto"></video>
+            <audio id="menu-audio" loop preload="auto"></audio>
+        </div>
+
+        <img id="coach-display" src="" alt="Coach">
+
+        <div class="exit-btn">
+            <button onclick="stopDancing()" class="w-10 h-10 bg-black/50 backdrop-blur-md border border-white/20 rounded-full text-white">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="app-ui" id="app-interface">
+            <header class="p-6 flex justify-between items-center relative z-20">
+                <div class="flex flex-col gap-3">
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.postimg.cc/XZt8BJRQ/jdnext-logo.png" style="height:35px" alt="Just Dance Next">
+                        <div class="flex gap-1">
+                            <span class="ui-badge active" id="btn-landscape" onclick="setOrientation('landscape')"><i class="fas fa-desktop"></i></span>
+                            <span class="ui-badge" id="btn-portrait" onclick="setOrientation('portrait')"><i class="fas fa-mobile-alt"></i></span>
+
+                        </div>
+                    </div>
+                    <div class="flex gap-1">
+                        <span class="ui-badge active" onclick="setPlatform('pc', this)">PC</span>
+                        <span class="ui-badge" onclick="setPlatform('tablet', this)">Tablet</span>
+                        <span class="ui-badge" onclick="setPlatform('mobile', this)">Phone</span>
+                    </div>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search opacity-50"></i>
+                    <input type="text" id="songSearch" placeholder="Search song..." oninput="filterSongs()">
+                </div>
+            </header>
+
+            <main class="flex-1 flex flex-col justify-center px-10 relative z-10">
+                <div class="hero-content">
+                    <h1 id="hero-title" class="text-6xl font-black italic uppercase leading-none tracking-tighter mb-4 drop-shadow-2xl">Title</h1>
+                    <p id="hero-artist" class="text-lg font-bold italic opacity-70 uppercase tracking-[0.4em] mb-6">Artist</p>
+                    
+                    <div class="btn-play-container" onclick="startDancing()">
+                        <img src="https://i.postimg.cc/jW31gtG5/cluster-btn-(1).png" class="btn-play-img" alt="Play">
+                        <span class="btn-play-text">Dance Now</span>
+                    </div>
+                </div>
+            </main>
+
+            <div id="catalog-container" class="relative z-20 mb-6 overflow-y-auto max-h-[42vh] scrollbar-hide"></div>
+        </div>
+    </div>
+
+    <script>
+        const songDB = [
+            {
+                edition: "Just Dance 2024 Edition",
+                songs: [
+                    { 
+                        id: 'calmdown', 
+                        title: 'Calm Down', 
+                        artist: 'Rema', 
+                        color: '#fbbf24', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/CalmDown.png', 
+                        video: 'https://mp4.justdancenow.com/calmdown_793e673f4cbba23901e97b6aa954315df61ee589_576p.mp4?hlscookie=st=1767273359~exp=1768569359~acl=/calmdown_793e673f4cbba23901e97b6aa954315df61ee589_576p.mp4~hmac=8b549372efccb504ea0d645d5342e5529255a4c32cc3666c19174be8be1ab4b7', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/CalmDown_1763022112197/assets/web/CalmDown.mp3', 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/CalmDown_map_bkg.jpg' 
+                    },
+                    {
+                        id: 'flowers', 
+                        title: 'Flowers', 
+                        artist: 'Miley Cyrus', 
+                        color: '#f472b6', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/Flowers.png', 
+                        video: 'https://mp4.justdancenow.com/flowers_fa80cd5391fb519ab508525da85d9dcec6e23c04_576p.mp4?hlscookie=st=1767285791~exp=1768581791~acl=/flowers_fa80cd5391fb519ab508525da85d9dcec6e23c04_576p.mp4~hmac=62647bf0fdd3070fd9ef5719cb2fe4946b9280bdba3c3a5c296cae5a7a75e7e4', 
+                        audio: 'https://jd-s3.cdn.ubi.com/public/jdnext/maps/e9b9a29d-e754-4f68-8151-d242280ba76d/audioPreview.opus/6ca6a7a45a34085c1c18bdb5007be1a6.opus',
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/Flowers_map_bkg.jpg'
+                    }
+                ]
+            },
+            {
+           edition: "Just Dance 2023 Edition",
+                songs: [
+                    { 
+                        id: 'stay', 
+                        title: 'STAY', 
+                        artist: 'The Kid LAROI', 
+                        color: '#3b82f6', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/Stay.png', 
+                        video: 'https://mp4.justdancenow.com/stay_85c96db671143b2a360660ef22fcd54d186bb71d_576p.mp4?hlscookie=st=1767274423~exp=1768570423~acl=/stay_85c96db671143b2a360660ef22fcd54d186bb71d_576p.mp4~hmac=4fae0643b7f10a8c1e3665bd9eb3a9faa4625ccbf1b5f759115fd332a0f351c0', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/Stay_1763740863344/assets/web/Stay.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/Stay_map_bkg.jpg' 
+                    },
+                    { 
+                        id: 'woman', 
+                        title: 'Woman', 
+                        artist: 'Doja Cat', 
+                        color: '#f87171', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/Woman.png', 
+                        video: 'https://mp4.justdancenow.com/woman_38bfc7e1094df24a36ff7511cafa4889cde1d189_576p.mp4?hlscookie=st=1767274171~exp=1768570171~acl=/woman_38bfc7e1094df24a36ff7511cafa4889cde1d189_576p.mp4~hmac=bc0738c2b80e32dc2817873d6a03757b4bdd17b4da3f5d3a3351fbb36d897fd8', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/Woman_1763655549072/assets/web/Woman.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/Woman_map_bkg.jpg' 
+                    },
+                    { 
+                        id: 'womanalt', 
+                        title: 'Woman (Alt)', 
+                        artist: 'Doja Cat', 
+                        color: '#e879f9', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/WomanALT.png', 
+                        video: 'https://mp4.justdancenow.com/womanalt_de42dba72d6769ff6e15baf96e4be9183893bdfc_576p.mp4?hlscookie=st=1767274030~exp=1768570030~acl=/womanalt_de42dba72d6769ff6e15baf96e4be9183893bdfc_576p.mp4~hmac=ff1f954069cf83c870a4986e2e833f684e9b7729e5889767b35718e9aced0478', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/WomanALT_1763655614917/assets/web/WomanALT.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/WomanALT_map_bkg.jpg' 
+                    }
+                ]
+            }
+        ];
+
+        let activeSong = null;
+        let currentFilter = "";
+        const vPlayer = document.getElementById('main-video');
+        const aPlayer = document.getElementById('menu-audio');
+        const coachImg = document.getElementById('coach-display');
+
+        function setOrientation(mode) {
+            document.body.className = `orientation-${mode}`;
+            document.getElementById('btn-landscape').classList.toggle('active', mode === 'landscape');
+            document.getElementById('btn-portrait').classList.toggle('active', mode === 'portrait');
+        }
+
+        function setPlatform(platform, el) {
+            document.querySelectorAll('.ui-badge').forEach(b => { 
+                if(b.innerText.includes('PC') || b.innerText.includes('Tablet') || b.innerText.includes('Phone')) b.classList.remove('active')
+            });
+            el.classList.add('active');
+        }
+
+        function buildUI() {
+            const container = document.getElementById('catalog-container');
+            container.innerHTML = '';
+
+            songDB.forEach(section => {
+                const filteredSongs = section.songs.filter(s => 
+                    s.title.toLowerCase().includes(currentFilter.toLowerCase()) || 
+                    s.artist.toLowerCase().includes(currentFilter.toLowerCase())
+                );
+
+                if (filteredSongs.length > 0) {
+                    const title = document.createElement('div');
+                    title.className = 'section-title';
+                    title.innerText = section.edition;
+                    container.appendChild(title);
+
+                    const ribbon = document.createElement('div');
+                    ribbon.className = 'song-ribbon';
+                    filteredSongs.forEach(song => {
+                        const card = document.createElement('div');
+                        card.className = `song-card ${activeSong && activeSong.id === song.id ? 'active' : ''}`;
+                        card.id = `card-${song.id}`;
+                        card.onclick = () => selectSong(song);
+                        card.innerHTML = `<img src="${song.cover}" class="w-full h-full object-cover" alt="${song.title}">`;
+                        ribbon.appendChild(card);
+                    });
+                    container.appendChild(ribbon);
+                }
+            });
+        }
+
+        function filterSongs() {
+            currentFilter = document.getElementById('songSearch').value;
+            buildUI();
+        }
+
+        function selectSong(song) {
+            if (activeSong && activeSong.id === song.id) return;
+            activeSong = song;
+
+            document.querySelectorAll('.song-card').forEach(c => c.classList.remove('active'));
+            const selectedCard = document.getElementById(`card-${song.id}`);
+            if (selectedCard) selectedCard.classList.add('active');
+
+            document.getElementById('hero-title').innerText = song.title;
+            document.getElementById('hero-artist').innerText = song.artist;
+            document.documentElement.style.setProperty('--accent-color', song.color);
+
+            const bgUrl = song.bkg ? `url('${song.bkg}')` : "url('https://i.postimg.cc/Y4T3L95z/jd23-bkg.png')";
+            document.documentElement.style.setProperty('--dynamic-bkg', bgUrl);
+
+            coachImg.classList.remove('active');
+            
+            aPlayer.pause();
+            vPlayer.pause();
+            
+            if (song.video) {
+                vPlayer.src = song.video;
+                vPlayer.muted = true;
+                if(song.audio) {
+                    aPlayer.src = song.audio;
+                    aPlayer.play().catch(() => {});
+                }
+                vPlayer.play().catch(() => {});
+            }
+        }
+
+        function startDancing() {
+            document.body.classList.add('dance-mode');
+            aPlayer.pause();
+            vPlayer.currentTime = 0;
+            vPlayer.muted = false; 
+            vPlayer.volume = 1.0;
+            vPlayer.play();
+        }
+
+        function stopDancing() {
+            document.body.classList.remove('dance-mode');
+            vPlayer.pause();
+            selectSong(activeSong);
+        }
+
+        window.onload = () => {
+            buildUI();
+            selectSong(songDB[1].songs[0]); // STAY by default
+        };
+    </script>
+</body>
+</html>
+
+
