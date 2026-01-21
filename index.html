@@ -296,9 +296,42 @@ title="Перемкнути екран"></button>
             <div id="catalog-container" class="relative z-20 mb-6 overflow-y-auto max-h-[42vh] scrollbar-hide"></div>
         </div>
     </div>
-
     <script>
-        const songDB = [
+const songDB = [
+            {
+                edition: "Just Dance 2027 Edition",
+                songs: [
+                    { 
+                        id: '3d', 
+                        title: '3d', 
+                        artist: 'Jung Kook, Jack Harlow', 
+                        color: '#00FFFF', 
+                        cover: 'https://i.postimg.cc/CL3BJQPR/New-Project-124-3E9591C.png', 
+                        video: 'https://jack-harlow.enter.audio/mp3/files/jung-kook-bts-jack-harlow-3d-clean-ver-mp3.mp3',
+                        
+                audio: 'https://jack-harlow.enter.audio/mp3/files/jung-kook-bts-jack-harlow-3d-clean-ver-mp3.mp3',
+                        bkg: 'https://i.postimg.cc/cCqCTKhh/In-Shot-20251216-124421927.jpg' 
+                  }
+                ]
+            },
+            {
+         
+                edition: "Just Dance 2026 Edition",
+                songs: [
+                    { 
+                        id: 'MoneyPullUp', 
+                        title: 'Money Pull Up', 
+                        artist: 'Blaiz Fayah, Maureen & DJ Glad	', 
+                        color: '#FF0000', 
+                        cover: 'https://i.postimg.cc/0QC1wTPh/Money-Pull-Up-Cover-2x.webp', 
+                        video: 'https://mp4.justdancenow.com/moneypullup_5d8f702683c2fb7f0b4376bedef0e73150ce56a6_576p.mp4?hlscookie=st=1768837637~exp=1770133637~acl=/moneypullup_5d8f702683c2fb7f0b4376bedef0e73150ce56a6_576p.mp4~hmac=ba6e492b24ccdbef89b54c98de14589f4f341021729745596bc2e2c5beff2254',
+
+                        
+                audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/MoneyPullUp_1764669714463/assets/web/MoneyPullUp.mp3',
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/MoneyPullUp_map_bkg.jpg' 
+                 }
+                ]
+            },
             {
                 edition: "Just Dance 2024 Edition",
                 songs: [
@@ -321,10 +354,37 @@ title="Перемкнути екран"></button>
                         video: 'https://mp4.justdancenow.com/flowers_fa80cd5391fb519ab508525da85d9dcec6e23c04_576p.mp4?hlscookie=st=1767285791~exp=1768581791~acl=/flowers_fa80cd5391fb519ab508525da85d9dcec6e23c04_576p.mp4~hmac=62647bf0fdd3070fd9ef5719cb2fe4946b9280bdba3c3a5c296cae5a7a75e7e4', 
                         audio: 'https://jd-s3.cdn.ubi.com/public/jdnext/maps/e9b9a29d-e754-4f68-8151-d242280ba76d/audioPreview.opus/6ca6a7a45a34085c1c18bdb5007be1a6.opus',
                         bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/Flowers_map_bkg.jpg'
-                    }
+    },
+{
+"id": "SwanLake",
+"title": "Swan Lake",
+"artist": "The Just Dance Orchestra",
+"color": "#003153",
+"cover": "https://jdnow-api-contentapistoragest.justdancenow.com/songs/SwanLakeRemix_1718899479203/assets/app/swanlakeremix_cover.jpg",
+"video": "https://mp4.justdancenow.com/versailles_2f59d5b3dc42d2ee6fe55e9ff1adafd6f710d786_576p.mp4?hlscookie=st=1767452765~exp=1768748765~acl=/versailles_2f59d5b3dc42d2ee6fe55e9ff1adafd6f710d786_576p.mp4~hmac=e757c8c70e41a5abf730f3c03976e923533c2fce0ce77d5934e385e25ab8c2d4",
+"audio": "https://jdnow-api-contentapistoragest.justdancenow.com/songs/SwanLakeRemix_1718899479203/assets/web/SwanLakeRemix.mp3",
+"bkg": "https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/SwanLakeRemix_map_bkg.jpg"         
+},
+{
+
+"id": "Versailles",
+"title": "A Night in the château de Versailles",
+"artist": "The Just Dance Orchestra",
+"color": "#facc15",
+"cover": "https://jdnow-api-contentapistoragest.justdancenow.com/songs/Versailles_1718899339953/assets/app/versailles_cover.jpg",
+"video": "https://mp4.justdancenow.com/versailles_2f59d5b3dc42d2ee6fe55e9ff1adafd6f710d786_576p.mp4?hlscookie=st=1768919878~exp=1770215878~acl=/versailles_2f59d5b3dc42d2ee6fe55e9ff1adafd6f710d786_576p.mp4~hmac=a14151786a060dbdd3999451f2b8874de11498b849f6ef7276f58e4b52e290b5",
+"audio": "https://jdnow-api-contentapistoragest.justdancenow.com/songs/Versailles_1718899339953/assets/web/Versailles.mp3",
+"bkg": "https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/Versailles_map_bkg.jpg"
+}
                 ]
             },
             {
+            
+
+
+
+                
+         
            edition: "Just Dance 2023 Edition",
                 songs: [
                     { 
@@ -337,7 +397,18 @@ title="Перемкнути екран"></button>
                         audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/Stay_1763740863344/assets/web/Stay.mp3', 
                         coach: null, 
                         bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/Stay_map_bkg.jpg' 
-                    },
+    },
+                    { 
+                        id: 'StayALT', 
+                        title: 'STAY - ALTERNATE', 
+                        artist: 'The Kid LAROI', 
+                        color: '#ff9a00', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/StayALT.png', 
+                        video: 'https://mp4.justdancenow.com/stayalt_7d3a8d889075501f76a71dfd4f1ac44db80521f2_576p.mp4?hlscookie=st=1767442472~exp=1768738472~acl=/stayalt_7d3a8d889075501f76a71dfd4f1ac44db80521f2_576p.mp4~hmac=0ae1a01e25a4906e0cf782f1a4b09730fd98b9aa5fedd6303c209131c1751e99', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/StayALT_1763744272447/assets/web/StayALT.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/StayALT_map_bkg.jpg'                
+   },
                     { 
                         id: 'woman', 
                         title: 'Woman', 
@@ -351,7 +422,7 @@ title="Перемкнути екран"></button>
                     },
                     { 
                         id: 'womanalt', 
-                        title: 'Woman (Alt)', 
+                        title: 'Woman - ALTERNATE', 
                         artist: 'Doja Cat', 
                         color: '#e879f9', 
                         cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/WomanALT.png', 
@@ -359,11 +430,355 @@ title="Перемкнути екран"></button>
                         audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/WomanALT_1763655614917/assets/web/WomanALT.mp3', 
                         coach: null, 
                         bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/WomanALT_map_bkg.jpg' 
-                    }
+                },
+                    { 
+                        id: 'Euphoria', 
+                        title: 'Euphoria', 
+                        artist: 'Loreen', 
+                        color: '#0000FF', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/Euphoria.png', 
+                        video: 'https://mp4.justdancenow.com/euphoria_d96ffaf8924a9c9d98de8bbd78a2d9b552a4eabb_576p.mp4?hlscookie=st=1767274000~exp=1768570000~acl=/euphoria_d96ffaf8924a9c9d98de8bbd78a2d9b552a4eabb_576p.mp4~hmac=3a5573898681972cc6131864cbfd733170d6522ea38931731a4ed3ce1fb097d9', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/Euphoria_1762887412318/assets/web/Euphoria.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/Euphoria_map_bkg.jpg' 
+ },
+                    { 
+                        id: 'PARTY', 
+                        title: 'If You Wanna Party', 
+                        artist: 'The Just Dancers', 
+                        color: '#008000', 
+                        cover: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/PARTY_1699006573071/assets/app/party_cover.jpg', 
+                        video: 'https://mp4.justdancenow.com/party_c535fece44623a8eeba84203717b986bdb242cd8_576p.mp4?hlscookie=st=1767387508~exp=1768683508~acl=/party_c535fece44623a8eeba84203717b986bdb242cd8_576p.mp4~hmac=5171c4bb96f2e54ba12e0b80dfba93f8ba35d33ed768b0a5eb9c1efa3884861a', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/PARTY_1699006573071/assets/web/PARTY.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/PARTY_map_bkg.jpg' 
+ },
+                    { 
+                        id: 'GiveThatWolf', 
+                        title: 'Give That Wolf A Banana', 
+                        artist: 'Subwoolfer', 
+                        color: '#B05B9A', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/GiveThatWolf.png', 
+                        video: 'https://sneakpeak.justdancenow.com/givethatwolf_508099f9376cc2e5a989d726f83910129a276de9.mp4', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/GiveThatWolf_1762886899629/assets/web/GiveThatWolf.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/GiveThatWolf_map_bkg.jpg' 
+ },
+                    { 
+                        id: 'CantStopTheFeeling', 
+                        title: "CAN'T STOP THE FEELING!",    
+                        artist: 'Justin Timberlake', 
+                        color: '#AFEEEE', 
+                        cover: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/CantStopTheFeeling_1668512305514/assets/app/cantstopthefeeling_cover.jpg', 
+                        video: 'https://mp4.justdancenow.com/cantstopthefeeling_26259959e6c04e62a544021d1e500c42ff7b9c45_576p.mp4?hlscookie=st=1767441255~exp=1768737255~acl=/cantstopthefeeling_26259959e6c04e62a544021d1e500c42ff7b9c45_576p.mp4~hmac=541228932a3d0e76441c311018679521dc9bb45fb26a227b56df868f843c6443', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/CantStopTheFeeling_1668512305514/assets/web/CantStopTheFeeling.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/CantStopTheFeeling_map_bkg.jpg' 
+  },
+                    { 
+                        id: 'Dynamite', 
+                        title: 'Dynamite',    
+                        artist: 'BTS (방탄소년단)', 
+                        color: '#0xFF444444', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/Dynamite.png', 
+                        video: 'https://mp4.justdancenow.com/dynamite_7f54755d21b4447ae950fd320a605178f0eed5b0_576p.mp4?hlscookie=st=1767441714~exp=1768737714~acl=/dynamite_7f54755d21b4447ae950fd320a605178f0eed5b0_576p.mp4~hmac=b7f9efda31e40fdfae8b4c7cb606104ae2395413adaa0e0271e073c313180cca', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/Dynamite_1765812785974/assets/web/Dynamite.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/Dynamite_map_bkg.jpg' 
+  },
+                    { 
+                        id: 'BoyWithLuvNext', 
+                        title: 'Boy With Luv',    
+                        artist: 'BTS (방탄소년단) Ft. Halsey', 
+                        color: '#0xFF444844', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/BoyWithLuvNext.png', 
+                        video: 'https://mp4.justdancenow.com/boywithluvnext_57fd67b953dc7f9dee11d297b9c6b893aaab9cce_576p.mp4?hlscookie=st=1767442134~exp=1768738134~acl=/boywithluvnext_57fd67b953dc7f9dee11d297b9c6b893aaab9cce_576p.mp4~hmac=54b3c027a25e39d08602a83ea0dd44a9a27cfa342be0675e5df357b19a217b84', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/BoyWithLuvNext_1765298473151/assets/web/BoyWithLuvNext.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/BoyWithLuvNext_map_bkg.jpg' 
+  },
+                    { 
+                        id: 'WetTennis', 
+                        title: 'Wet Tennis',    
+                        artist: 'Sofi Tukker', 
+                        color: '#bbbbbb', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/WetTennis.png', 
+                        video: 'https://mp4.justdancenow.com/wettennis_8eac87c5eafa634bd47e3d74d4ef29d2613285ac_576p.mp4?hlscookie=st=1767442696~exp=1768738696~acl=/wettennis_8eac87c5eafa634bd47e3d74d4ef29d2613285ac_576p.mp4~hmac=5e4563f1a561538852bab477bf0af5b5bf76a1c62bac491bff68811436e90fe0', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/WetTennis_1762888085512/assets/web/WetTennis.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/WetTennis_map_bkg.jpg' 
+  },
+                    { 
+                        id: 'ThereforeIAm', 
+                        title: 'Therefore I Am',    
+                        artist: 'Billie Eilish', 
+                        color: '#8000FF', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/ThereforeIAm.png', 
+                        video: 'https://mp4.justdancenow.com/thereforeiam_78adfbb5f5e9c029ebd041048813943eb1a58187_576p.mp4?hlscookie=st=1767443192~exp=1768739192~acl=/thereforeiam_78adfbb5f5e9c029ebd041048813943eb1a58187_576p.mp4~hmac=dad4a9babf4d239edab0908c8595c9ad13574c4ac7397d5855faca166c986959', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/ThereforeIAm_1763655722091/assets/web/ThereforeIAm.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/ThereforeIAm_map_bkg.jpg' 
+ },
+                    { 
+                        id: 'MillionDollarBaby', 
+                        title: 'Million Dollar Baby',    
+                        artist: 'Ava Max', 
+                        color: '#FF0000', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/MillionDollarBaby.png', 
+                        video: 'https://mp4.justdancenow.com/milliondollarbaby_29c359d7167e0939d30bda092ca6bb93334b1689_576p.mp4?hlscookie=st=1767443571~exp=1768739571~acl=/milliondollarbaby_29c359d7167e0939d30bda092ca6bb93334b1689_576p.mp4~hmac=4d4c3f8be40a20c2ca3ff605f285b525ca0e1219d3ef6593e507fc1d600fab42', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/MillionDollarBaby_1763744333088/assets/web/MillionDollarBaby.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/MillionDollarBaby_map_bkg.jpg' 
+ },
+                    { 
+                        id: 'SweetButPsycho', 
+                        title: 'Sweet but Psycho',    
+                        artist: 'Ava Max', 
+                        color: '#FFC0CB', 
+                        cover: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/SweetButPsycho_1722622484505/assets/app/sweetbutpsycho_cover.jpg', 
+                        video: 'https://mp4.justdancenow.com/sweetbutpsycho_9c00f9bc92f8e67ec9f75d823e2fdc9687dfc7cc_576p.mp4?hlscookie=st=1767443818~exp=1768739818~acl=/sweetbutpsycho_9c00f9bc92f8e67ec9f75d823e2fdc9687dfc7cc_576p.mp4~hmac=4b4a5fb8715f5816bd42597f7b5ca3275e7b5dca518c419fc1b0312a9cd32f0f', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/SweetButPsycho_1722622484505/assets/web/SweetButPsycho.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/SweetButPsycho_map_bkg.jpg' 
+},
+                    { 
+                        id: 'LockedOut', 
+                        title: 'Locked Out of Heaven',    
+                        artist: 'Bruno Mars', 
+                        color: '#FF0000', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/LockedOut.png', 
+                        video: 'https://mp4.justdancenow.com/lockedout_add1f41f488c22a9690caf6907fa421aeec33b2e_576p.mp4?hlscookie=st=1767444092~exp=1768740092~acl=/lockedout_add1f41f488c22a9690caf6907fa421aeec33b2e_576p.mp4~hmac=f31f65fb09b87e7a8f02bc386dd916ef754c9603c112d7c57e84638a3a5ad8bb', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/LockedOut_1763655667574/assets/web/LockedOut.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/LockedOut_map_bkg.jpg' 
+},
+                    { 
+                        id: 'Farfalle', 
+                        title: 'Farfalle',    
+                        artist: 'sangiovanni', 
+                        color: '#ffc0cb', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/Farfalle.png', 
+                        video: 'https://mp4.justdancenow.com/farfalle_fec5ed45b95de8224f9d882f7ac983e63d6492ef_576p.mp4?hlscookie=st=1767444473~exp=1768740473~acl=/farfalle_fec5ed45b95de8224f9d882f7ac983e63d6492ef_576p.mp4~hmac=7f607e5442ed0a6353254d03cc69e32e82fd2f3f4df1a1fc747f383696f7ec21', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/Farfalle_1763744162492/assets/web/Farfalle.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/Farfalle_map_bkg.jpg' 
+ },
+                    { 
+                        id: 'RatherBe', 
+                        title: 'Rather Be',    
+                        artist: 'Clean Bandit Ft. Jess Glynne', 
+                        color: '#0070FF', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/RatherBe.png', 
+                        video: 'https://mp4.justdancenow.com/ratherbe_66b8d507bfd5b800266f6cc8350aad0b42a16c18_576p.mp4?hlscookie=st=1767447487~exp=1768743487~acl=/ratherbe_66b8d507bfd5b800266f6cc8350aad0b42a16c18_576p.mp4~hmac=26e00e794a81c1be18eb65675a95efa5044d7120807a8b0748fcabbe7be737c6', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/RatherBe_1722622180867/assets/web/RatherBe.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/RatherBe_map_bkg.jpg'
+  },
+                    { 
+                        id: 'GoodOnes', 
+                        title: 'Good Ones',    
+                        artist: 'Charli XCX', 
+                        color: '#FBEC5D', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/GoodOnes.png', 
+                        video: 'https://mp4.justdancenow.com/goodones_0e09fa9159dbc9ed67e67b0d9957022d3fdac465_576p.mp4?hlscookie=st=1767447987~exp=1768743987~acl=/goodones_0e09fa9159dbc9ed67e67b0d9957022d3fdac465_576p.mp4~hmac=579348d0f580659da043a0fe12826a33d02e022f29a8cb59109537fdf443e292', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/GoodOnes_1723042038695/assets/web/GoodOnes.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/GoodOnes_map_bkg.jpg'
+  },
+                    { 
+                        id: 'Witch', 
+                        title: 'Witch',    
+                        artist: 'Apashe ft. Alina Pash', 
+                        color: '#734F96', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/Witch.png', 
+                        video: 'https://mp4.justdancenow.com/witch_3ec1b7197e70b181bee05dd55e6553ae39da450f_576p.mp4?hlscookie=st=1767448202~exp=1768744202~acl=/witch_3ec1b7197e70b181bee05dd55e6553ae39da450f_576p.mp4~hmac=d9b9b344c66ab6ffdf59f100d64a85aa303a68d11166959da0877b49e0d798ce', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/Witch_1719246878056/assets/web/Witch.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/Witch_map_bkg.jpg'
+ },
+                    { 
+                        id: 'HighVoltage', 
+                        title: 'Danger! High Voltage',    
+                        artist: 'Electric Six', 
+                        color: '#734F96', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/HighVoltage.png', 
+                        video: 'https://mp4.justdancenow.com/highvoltage_c43b6b6f6587d3c32442e2bbe4ed30503f4708b2_576p.mp4?hlscookie=st=1767448497~exp=1768744497~acl=/highvoltage_c43b6b6f6587d3c32442e2bbe4ed30503f4708b2_576p.mp4~hmac=a9353cd3611c867001426b853f9321ff75dabad6c3aad92a13e60ce8e6662e84', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/HighVoltage_1719247033964/assets/web/HighVoltage.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/HighVoltage_map_bkg.jpg'
+ },
+                    { 
+                        id: 'Majesty', 
+                        title: 'Majesty',    
+                        artist: 'Apashe Ft. Wasiu', 
+                        color: '#9400D3', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/Majesty.png', 
+                        video: 'https://mp4.justdancenow.com/majesty_f221448471b6ea32a55ccfe3a555e277f1a7a92f_576p.mp4?hlscookie=st=1767448813~exp=1768744813~acl=/majesty_f221448471b6ea32a55ccfe3a555e277f1a7a92f_576p.mp4~hmac=c0483c4e982de428af4f280b3947141ddbdddf835c5f489c5d90f5af101402f2', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/Majesty_1701272199892/assets/web/Majesty.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/Majesty_map_bkg.jpg'
+  },
+{
+"id": "BeNice",
+"title": "Wouldn't It Be Nice",
+"artist": "The Sunlight Shakers",
+"color": "#5D8AA8",
+"cover": "https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/BeNice.png",
+"video": "https://mp4.justdancenow.com/benice_1e11021fe6788ac630d55a0dddfcc7d4b1b277a5_576p.mp4?hlscookie=st=1767449174~exp=1768745174~acl=/benice_1e11021fe6788ac630d55a0dddfcc7d4b1b277a5_576p.mp4~hmac=768464ac680a5b8adff2017ddb89c92939f6c4eada5bf390279c6cbf5e24c24a",
+"audio": "https://jdnow-api-contentapistoragest.justdancenow.com/songs/BeNice_1699468171120/assets/web/BeNice.mp3",
+"bkg": "https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/BeNice_map_bkg.jpg"
+ },
+                    { 
+                        id: 'Radioactive', 
+                        title: 'Radioactive',    
+                        artist: 'Imagine Dragons', 
+                        color: '#C0C0C0', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/Radioactive.png', 
+                        video: 'https://mp4.justdancenow.com/radioactive_78016e49a1126ff6f41c8832284a2feebd3f214d_576p.mp4?hlscookie=st=1767451982~exp=1768747982~acl=/radioactive_78016e49a1126ff6f41c8832284a2feebd3f214d_576p.mp4~hmac=3477c86cafbab2335961f47e2e9b907bf0d9744ddd7023f06d35e8a6dcf4898a', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/Radioactive_1699020094693/assets/web/Radioactive.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/Radioactive_map_bkg.jpg'
+  },
+                    { 
+                        id: 'ZoobyDoo', 
+                        title: 'Zooby Doo',    
+                        artist: 'Tigermonkey', 
+                        color: '#00FF7F', 
+                        cover: 'https://jdhelper-cdn.ramaprojects.ru/jdnext/cover/ZoobyDoo.png', 
+                        video: 'https://mp4.justdancenow.com/zoobydoo_afa940bd604d14841059331fd589291330db0a85_576p.mp4?hlscookie=st=1767452229~exp=1768748229~acl=/zoobydoo_afa940bd604d14841059331fd589291330db0a85_576p.mp4~hmac=9b3718d69f34e6d1b2e553a5d9f2e756b3d52500a4e03a1db2dc416c25ef10d0', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/ZoobyDoo_1699006407084/assets/web/ZoobyDoo.mp3', 
+                        coach: null, 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/ZoobyDoo_map_bkg.jpg'  
+ }
+]
+},
+{
+                   
+                      
+       edition: "Just Dance 2020",
+                songs: [
+                    { 
+                        id: 'SushiiALT', 
+                        title: 'Sushi - ALTERNATE', 
+                        artist: 'Merk & Kremont', 
+                        color: '#fbbf24', 
+                        cover: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/SushiiALT_1581598769464/assets/app/sushiialt_cover.jpg', 
+                        video: 'https://mp4.justdancenow.com/sushiialt_021756e1095b2507b42263430728dd211a3b24e3_576p.mp4?hlscookie=st=1767370564~exp=1768666564~acl=/sushiialt_021756e1095b2507b42263430728dd211a3b24e3_576p.mp4~hmac=05a509daa1c4ea2036b0e040e496c893e8f6bfc6a070523a24d74504fd8a9fa1', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/SushiiALT_1581598769464/assets/web/SushiiALT.mp3', 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/SushiiALT_map_bkg.jpg' 
+ },
+                    {
+                        id: 'Sushi', 
+                        title: 'Sushi', 
+                        artist: 'Merk & Kremont', 
+                        color: '#f472b6', 
+                        cover: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/Sushii_1581598661405/assets/app/sushii_cover.jpg', 
+                        video: 'https://mp4.justdancenow.com/sushii_3e00b02435f7f44d6c3822938167823c9d0e959f_576p.mp4?hlscookie=st=1767371066~exp=1768667066~acl=/sushii_3e00b02435f7f44d6c3822938167823c9d0e959f_576p.mp4~hmac=a546c62b9ba423e5034ef53616f0a83d065af7b9a87bd2483729971aba41de5f', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/Sushii_1581598661405/assets/web/Sushii.mp3',
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/Sushii_map_bkg.jpg'
+                   },
+                    {
+                        id: 'JustAnIllusion', 
+                        title: 'Just An Illusion', 
+                        artist: 'Imagination', 
+                        color: ' #0000ff', 
+                        cover: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/JustAnIllusion_1581597297986/assets/app/justanillusion_cover.jpg', 
+                        video: 'https://mp4.justdancenow.com/justanillusion_77916a1e4f088709bb79d23202e753efcb67a6c7_576p.mp4?hlscookie=st=1767372096~exp=1768668096~acl=/justanillusion_77916a1e4f088709bb79d23202e753efcb67a6c7_576p.mp4~hmac=dbba0fdb21e073389f52edcfd0761c8e7898ad7263a4a5b6aeb046bc7d4f3d9d', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/JustAnIllusion_1581597297986/assets/web/JustAnIllusion.mp3',
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/JustAnIllusion_map_bkg.jpg'
+                 },
+                    {
+                        id: 'FancyTwice', 
+                        title: 'FANCY', 
+                        artist: 'Twice', 
+                        color: ' #b81498', 
+                        cover: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/FancyTwice_1587746089624/assets/app/fancytwice_cover.jpg', 
+                        video: 'https://mp4.justdancenow.com/fancytwice_692cfb04fd010413cb355b6b08457e25069ca732_576p.mp4?hlscookie=st=1767372455~exp=1768668455~acl=/fancytwice_692cfb04fd010413cb355b6b08457e25069ca732_576p.mp4~hmac=4360d088172107e1b89dccab4fa77d628366b396e60da732619778adb851db2b', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/FancyTwice_1587746089624/assets/web/FancyTwice.mp3',
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/FancyTwice_map_bkg.jpg'
+
+                  },
+                    {
+                        id: 'TheTime', 
+                        title: 'The Time (Dirty Bit)', 
+                        artist: 'Black Eyed Peas', 
+                        color: ' #00ff7f', 
+                        cover: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/TheTime_1581599147800/assets/app/thetime_cover.jpg', 
+                        video: 'https://mp4.justdancenow.com/thetime_15b2bd92ca64d8f2422551f67fdc1d7820d0aeed_576p.mp4?hlscookie=st=1767372838~exp=1768668838~acl=/thetime_15b2bd92ca64d8f2422551f67fdc1d7820d0aeed_576p.mp4~hmac=d363613107c1695bb0a78236b4002d4e4b378e15a704ae0819df9bcc51fa45c6', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/TheTime_1581599147800/assets/web/TheTime.mp3',
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/TheTime_map_bkg.jpg'
+                 },
+                    {
+                        id: 'WhiteNoise', 
+                        title: 'White Noise', 
+                        artist: 'Disclosure ft. AlunaGeorge', 
+                        color: '#19ace6', 
+                        cover: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/WhiteNoise_1592834273252/assets/app/whitenoise_cover.jpg', 
+                        video: 'https://mp4.justdancenow.com/whitenoise_b5a223ed644a7adf2d5a62ed869f888428fcd74b_576p.mp4?hlscookie=st=1767373125~exp=1768669125~acl=/whitenoise_b5a223ed644a7adf2d5a62ed869f888428fcd74b_576p.mp4~hmac=200d8a72e8b09807e9ff1c7153323e2c2a68198ee2bf62a6fbc5604fb57dd2b4', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/WhiteNoise_1592834273252/assets/web/WhiteNoise.mp3',
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/WhiteNoise_map_bkg.jpg'
+        ,
+                }, 
+   {
+                        id: 'KeepInTouch', 
+                        title: 'Keep In Touch', 
+                        artist: 'JayDon', 
+                        color: '#ff9a00', 
+                        cover: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/KeepInTouch_1581597423594/assets/app/keepintouch_cover.jpg', 
+                        video: 'https://mp4.justdancenow.com/keepintouch_c6f824816ee66e4fc9b0c336e9b2342756613611_576p.mp4?hlscookie=st=1767375397~exp=1768671397~acl=/keepintouch_c6f824816ee66e4fc9b0c336e9b2342756613611_576p.mp4~hmac=ad7c84bf0c6d5f3cdbf0ae0fcb51bb2a2d3fe263043974a0de2496d47f9e19df', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/KeepInTouch_1581597423594/assets/web/KeepInTouch.mp3',
+                         bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/KeepInTouch_map_bkg.jpg' 
+ }
+                ]
+            },
+            {        
+                        
+                
+            
+            
+                edition: "Just Dance 2014",
+                songs: [
+                    { 
+                        id: 'LoveBoat', 
+                        title: 'Love Boat', 
+                        artist: 'Jack Jones', 
+                        color: '#000000', 
+                        cover: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/LoveBoat_1598531308805/assets/app/loveboat_cover.jpg', 
+                        video: 'https://mp4.justdancenow.com/loveboat_d780234c59d10fd2cac7ad011ab3a9adba821e6d_576p.mp4?hlscookie=st=1767382738~exp=1768678738~acl=/loveboat_d780234c59d10fd2cac7ad011ab3a9adba821e6d_576p.mp4~hmac=b69d6488cf30ee584c112aeb4a06f623cef63262e7926ddf3beb3305ca46b557', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/LoveBoat_1598531308805/assets/web/LoveBoat.mp3', 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/LoveBoat_map_bkg.jpg' 
+                    },
+                    {
+                        id: 'FineChina', 
+                        title: 'Fine China', 
+                        artist: 'Chris Brown', 
+                        color: '#8B0000', 
+                        cover: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/FineChina_1550758834850/assets/app/finechina_cover.jpg', 
+                        video: 'https://mp4.justdancenow.com/finechina_df89d46fee979ac315aadf831dd8b41b1a0c79b2_576p.mp4?hlscookie=st=1767383016~exp=1768679016~acl=/finechina_df89d46fee979ac315aadf831dd8b41b1a0c79b2_576p.mp4~hmac=408178dab2e418972f1f1f6fdd4bd706269b697872b92e5cef5ddec492faedca', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/FineChina_1550758834850/assets/web/FineChina.mp3',
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/FineChina_map_bkg.jpg'
+                     
+              }
+                ]
+            },
+            {       
+            
+          
+                edition: "Just Dance ABBA",
+                songs: [
+                    { 
+                        id: 'ABBADancingQueen', 
+                        title: 'Dancing Queen', 
+                        artist: 'ABBA', 
+                        color: '#000000', 
+                        cover: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/ABBADancingQueen_1598456653395/assets/app/abbadancingqueen_cover.jpg', 
+                        video: 'https://mp4.justdancenow.com/abbadancingqueen_393c3e0380c3ad41abec5ccec44651c66b227328_576p.mp4?hlscookie=st=1767385768~exp=1768681768~acl=/abbadancingqueen_393c3e0380c3ad41abec5ccec44651c66b227328_576p.mp4~hmac=29dedcb3bd39b8fc33b7cf390be34588a5294e61651512e660ed4c479116d69a', 
+                        audio: 'https://jdnow-api-contentapistoragest.justdancenow.com/songs/ABBADancingQueen_1598456653395/assets/web/ABBADancingQueen.mp3', 
+                        bkg: 'https://jdnow-api-contentapistoragest.justdancenow.com/map_bkg/ABBADancingQueen_map_bkg.jpg'     
+                }
                 ]
             }
         ];
-
         let activeSong = null;
         let currentFilter = "";
         const vPlayer = document.getElementById('main-video');
@@ -382,6 +797,7 @@ title="Перемкнути екран"></button>
             });
             el.classList.add('active');
         }
+ // Плавне затухання в кінці 30 секунд
 
         function buildUI() {
             const container = document.getElementById('catalog-container');
@@ -472,5 +888,4 @@ title="Перемкнути екран"></button>
     </script>
 </body>
 </html>
-
 
